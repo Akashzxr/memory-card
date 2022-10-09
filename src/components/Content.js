@@ -4,16 +4,9 @@ import React, { useEffect, useState } from "react";
 
 
 
-const Card1=({sendDataToParent})=>{
-
-  const [count,setcount] = useState(0);
-   const change=()=>{
-    setcount(count+1);
-    console.log(count);
-   }
-  
+const Card1=()=>{
     return(
-      <div id="n" onClick={change} style={{color: "black"}}>
+      <div style={{color: "black"}}>
         1
           <img src={require('../images/p1.jpeg')} alt="p1" />
       </div>
