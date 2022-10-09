@@ -5,6 +5,7 @@ import React, {useEffect, useState} from 'react';
 function App() {
 
   const [score,setscore] = useState(0);
+  const [hscore,sethscore] = useState(0);
   const [c1,setc1] = useState(0);
   const [c2,setc2] = useState(0);
   const [c3,setc3] = useState(0);
@@ -30,9 +31,19 @@ function App() {
         setc3(0);
         setc4(0);
       }
+      
     };
     
-
+ useEffect(()=>{
+  if(score>hscore){
+    sethscore(score);
+  }
+  if(score===4){
+    sethscore(0);
+    setscore(0);
+    alert("YOU WON");
+  }
+ },[hscore,score])
   
 
   
@@ -74,12 +85,10 @@ function App() {
 
     };
 
-    
 
-
-    
   return (
     <div>
+      HighScore={hscore}
       <Score s={score}/>
     <div className="App">
       <div onClick={()=>{change();count(setc1,c1)}} style={ { gridColumn: `${column1}/${col1}`,gridRow: `${row1}/${ro1}`} } ><Card1/></div>
